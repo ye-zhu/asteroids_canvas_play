@@ -1,0 +1,11 @@
+body {
+  background-image: url("http://blogs.discovermagazine.com/crux/files/2016/06/mars-stars-1024x828.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+#canvas {
+  font-family: monospace;
+  /*border: 1px solid green;*/
+}
