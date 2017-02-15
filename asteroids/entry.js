@@ -4,11 +4,12 @@ const Images = require('./images.js')
 let canvas = document.getElementById('canvas');
 let context = canvas.getContext('2d');
 
+canvas.width = document.body.clientWidth; 
+canvas.height = document.body.clientHeight; 
 context.font = "18px monospace";
 context.fillStyle = "#32CD32";
 context.strokeStyle = "#ffffff";
-canvas.width = document.body.clientWidth; //document.width is obsolete
-canvas.height = document.body.clientHeight; //document.height is obsolete
+
 
 
 let startGame = function () {
