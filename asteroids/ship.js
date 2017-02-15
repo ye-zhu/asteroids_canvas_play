@@ -54,7 +54,7 @@ class Ship extends Collidable {
   }
 
   remakeShip () {
-    this.position = [canvas.width/2, canvas.height/2];
+    this.position = [this.game.canvas.width/2, this.game.canvas.height/2];
     this.vector = [.25, 0];
     this.game.makeWarp(this)
     this.shipStatus = "BLINKING"
@@ -78,12 +78,12 @@ class Ship extends Collidable {
 
   addListener () {
     let listenersFn = (e) => {
-      if (e.key === " " && this.game.running) {
+      if (e.keyCode === 32 && this.game.running) {
         e.preventDefault();
         if (e.type === 'keydown') {
           this.fireBullet();
         }
-      } else if (e.key === 'd' && this.game.running) {
+      } else if (e.keyCode === 68 && this.game.running) {
         if (e.type === 'keydown') {
           e.preventDefault();
           this.rotationState = ROTATION_STATE.CLOCKWISE;
@@ -91,7 +91,7 @@ class Ship extends Collidable {
           this.rotationState = ROTATION_STATE.NONE;
         }
 
-      } else if (e.key === 'a' && this.game.running) {
+      } else if (e.keyCode === 65 && this.game.running) {
         e.preventDefault();
         if (e.type === 'keydown') {
           this.rotationState = ROTATION_STATE.COUNTER_CLOCKWISE;
@@ -99,7 +99,7 @@ class Ship extends Collidable {
           this.rotationState = ROTATION_STATE.NONE;
         }
 
-      } else if (e.key === 'w' && this.game.running) {
+      } else if (e.keyCode === 87 && this.game.running) {
         e.preventDefault();
         if (e.type === 'keydown') {
           this.updateVector("accelerate")
@@ -109,14 +109,6 @@ class Ship extends Collidable {
         }
 
       }
-      // else if (e.key === 's') {
-      //   if (e.type === 'keydown') {
-      //     this.updateVector("decelerate")
-      //     this.shipImpulse = SHIP_STATUS.IMPULSE
-      //   } else {
-      //     this.shipImpulse = SHIP_STATUS.NOIMPULSE
-      //   }
-      // }
     }
 
       document.addEventListener('keydown', listenersFn)
@@ -146,7 +138,6 @@ class Ship extends Collidable {
   beforeMove () {
     this.invulnerability()
     this.rotateShip();
-    // this.drawImage();
   }
 
 }
